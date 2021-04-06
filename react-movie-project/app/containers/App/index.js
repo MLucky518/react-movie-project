@@ -13,19 +13,21 @@ import { Switch, Route } from 'react-router-dom'
 import HomePage from 'containers/HomePage/HomePage'
 
 import '../../styles/styles.scss'
+import Navbar from '../Navbar/Navbar'
+import GlobalStyle from '../../components/global'
 
-
-export default function App(props) { 
-    return (
-      <div className="app-wrapper">
-        <Helmet defaultTitle="Everyone's a critic">
-          <meta name="description" content="React Movie Reviews" />
-        </Helmet>
-
-        <Switch>
-          <Route path="/" component={HomePage} exact />
-          <Route path="/home" component={HomePage} />
-        </Switch>
-      </div>
-    )
-  }
+export default function App(props) {
+  return (
+    <div className="app-wrapper">
+      <GlobalStyle />
+      <Helmet defaultTitle="Everyone's a critic">
+        <meta name="description" content="React Movie Reviews" />
+      </Helmet>
+      <Navbar />
+      <Switch>
+        <Route path="/" component={HomePage} exact />
+        <Route path="/home" component={HomePage} />
+      </Switch>
+    </div>
+  )
+}

@@ -4,8 +4,8 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { Switch, Route, useHistory } from 'react-router-dom'
 
-import hesImg from 'images/hes.png'
 import { getMovieReviews } from 'resources/reviews/reviews.actions'
+import { HomeImage } from '../../components/Home/Home'
 
 export function HomePage(props) {
   const history = useHistory()
@@ -20,15 +20,20 @@ export function HomePage(props) {
         <meta name="description" content="Home" />
       </Helmet>
       <main>
-        <img src={hesImg} />
-        <h1>I am no Jedi.</h1>
+        <h1>Everyone's a critic</h1>
+        <blockquote>Honest Movie Reviews by</blockquote>
+        <HomeImage/>
+        <h1> why</h1>
+        <h1>I am no Jedig.</h1>
         <p>&mdash; Ahsoka Tano</p>
       </main>
     </div>
   )
 }
 
-const mapStateToProps = (state, ownProps) => {}
+const mapStateToProps = (state, ownProps) => {
+  return state
+}
 
 const mapDispatchToProps = dispatch => ({
   getMovieReviews: () => dispatch(getMovieReviews()),

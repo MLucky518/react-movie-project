@@ -2,36 +2,32 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 export const Nav = styled.nav`
-  height: 60px;
-  background: #bdc3c7; /* fallback for old browsers */
-  background: #005aa7; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #fffde4,
-    #005aa7
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #fffde4,
-    #005aa7
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  height: 55px;
+  border: none;
+  background: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  position: fixed;
   padding: 1rem 2rem;
   z-index: 100;
-  margin-left: 6%;
-  width: 90%;
+  width: 100%;
+  @media screen and (max-width: 768px) {
+    justify-content: space-between;
+  }
 `
 
 export const Logo = styled.img`
   position: relative;
-  bottom: 5%;
-  right: 30%;
+  bottom: 30%;
   padding: 0 1rem;
-  height: 50px;
-  width: 210px;
+  height: 40px;
+  width: 140px;
   cursor: pointer;
+  @media screen and (max-width: 768px) {
+    height: 30px;
+    bottom:10%;
+    right:20%;
+  }
 `
 
 export const MenuBars = styled.i`
@@ -48,15 +44,15 @@ export const MenuBars = styled.i`
 export const NavMenu = styled.div`
   display: flex;
   align-items: center;
-
+  position: relative;
   @media screen and (max-width: 768px) {
     display: none;
   }
 `
 
 export const MenuLinks = styled(Link)`
-  font-weight: bold;
-  color: ${({ primary }) => (primary ? 'white' : 'black')};
+  font-weight: 500;
+  color: ${({ primary }) => (primary ? '#364547' : 'black')};
   font-size: 1rem;
   display: flex;
   align-items: center;

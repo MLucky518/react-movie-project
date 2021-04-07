@@ -24,6 +24,7 @@ export default function App(props) {
         <meta name="description" content="React Movie Reviews" />
       </Helmet>
       <Navbar />
+
       <Switch>
         <Route path="/" component={HomePage} exact />
         <Route path="/home" component={HomePage} />

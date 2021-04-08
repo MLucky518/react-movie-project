@@ -93,10 +93,8 @@ export const HomeHeader = styled.div`
 `
 
 export const ContentWrapper = styled.div`
-  padding: 3rem calc((100vw-1300px) / 2);
   height: 100%;
-  width: 65%;
-  margin-left: 18%;
+  width: 100%;
   margin-top: 5%;
   display: flex;
   justify-content: space-around;
@@ -140,8 +138,8 @@ export const RightSideContent = styled.div`
   filter: saturate(120%);
   img {
     border-radius: 50px;
-    height: 400px;
-    width: 500px;
+    height: 500px;
+    width: 700px;
     padding: 1px;
     background: #5f939a;
     box-shadow: 1px 1px 80px 2px #5f939a;

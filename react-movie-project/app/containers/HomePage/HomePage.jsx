@@ -72,6 +72,12 @@ export function HomePage(props) {
       <h1> why</h1>
       <h1>I am no Jedig.</h1>
       <p>&mdash; Ahsoka Tano</p>
+      <button
+        onClick={() =>
+          window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+        }>
+        UP
+      </button>
     </HomeSection>
   )
 }

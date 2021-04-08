@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet' // Header Generator
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { Switch, Route, useHistory } from 'react-router-dom'
-
+import { HomeButton } from '.././../components/Buttons/Button'
 import { getMovieReviews } from 'resources/reviews/reviews.actions'
 import {
   HomeImage,
@@ -14,6 +14,7 @@ import {
   ContentWrapper,
   LeftSideContent,
   RightSideContent,
+  ButtonContainer,
 } from '../../components/Home/Home'
 import Fade from 'react-reveal/Fade'
 import Rotate from 'react-reveal/Rotate'
@@ -37,24 +38,36 @@ export function HomePage(props) {
           <Wobble>
             <h1>
               Everyone's <span>A</span> critic<span>!</span>
-              <blockquote>Honest Movie Reviews by regular people</blockquote>
             </h1>
           </Wobble>
 
           <TrophyImage src="https://thumbs.dreamstime.com/b/golden-film-strip-cup-stand-isolated-d-rendering-white-background-entertainment-concept-165553595.jpg" />
         </HomeHeader>
       </HomeHeaderWrapper>
-      <HomeImage>
-        <h2>Hello</h2>
+      <HomeImage top="true">
+        <h2>Find Your Voice</h2>
+        <ButtonContainer>
+          <HomeButton primary="true" big="true" round="true">
+            2-Min Video
+          </HomeButton>
+
+          <HomeButton primary="true" round="true">
+            Demo
+          </HomeButton>
+        </ButtonContainer>
       </HomeImage>
       <ContentWrapper>
         <Fade top>
           <LeftSideContent>
-            <h1>Phrase</h1>
-            <p>paragraph</p>
+            <h3>Find Wellness in sharing your voice</h3>
+            <p>
+              Read Reviews from all over the world or write your own! Earn
+              Reward Points for every review to use towards health perks (free
+              gym memberships,healthy food...etc)
+            </p>
           </LeftSideContent>
         </Fade>
-        <RightSideContent>
+        <RightSideContent round = "true">
           <img src="https://ak.picdn.net/shutterstock/videos/33621025/thumb/1.jpg" />
         </RightSideContent>
       </ContentWrapper>
@@ -71,6 +84,32 @@ export function HomePage(props) {
         </Rotate>
       </ContentWrapper>
 
+      <ContentWrapper>
+        <Fade bottom>
+          <LeftSideContent>
+            <h3>Find Wellness in sharing your voice</h3>
+            <p>Read Reviews from all over the world or write your own!</p>
+          </LeftSideContent>
+        </Fade>
+        <RightSideContent round = "true">
+          <img src="https://ak.picdn.net/shutterstock/videos/33621025/thumb/1.jpg" />
+        </RightSideContent>
+      </ContentWrapper>
+      <HomeImage style={{ alignItems: 'flex-start' }}>
+        <h2 style={{ marginLeft: '5%', fontSize: '3rem' }}>
+          Share and talk about what you love
+        </h2>
+        <ButtonContainer
+          style={{ justifyContent: 'flex-start', marginLeft: '15%' }}>
+          <HomeButton primary="true" big="true" round="true">
+            2-Min Video
+          </HomeButton>
+
+          <HomeButton primary="true" round="true">
+            Demo
+          </HomeButton>
+        </ButtonContainer>
+      </HomeImage>
       <h1> why</h1>
       <h1>I am no Jedig.</h1>
       <p>&mdash; Ahsoka Tano</p>

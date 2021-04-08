@@ -8,3 +8,15 @@ export const menuData = [
     link: `/critics`,
   },
 ]
+
+export const footerData = [
+  {
+    title: `Reviews`,
+    link: `/reviews`,
+  },
+  {
+    title: `Critics`,
+    link: `/critics`,
+  },
+]
+

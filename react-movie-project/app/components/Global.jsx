@@ -26,6 +26,15 @@ const GlobalStyle = createGlobalStyle`
         }
     }
 
+    .ashoka-pic{
+        border-radius:50%;
+        height:200px;
+        width:250px;
+        padding:2%;
+        margin-right:5%;
+    }
+
+   
 
     
 

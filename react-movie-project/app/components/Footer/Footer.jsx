@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
 export const FooterContainer = styled.section`
-  background: black;
-  height: 70px;
+  background: #f68431;
+  height: 150px;
   width: 100%;
-  position: fixed !important;
+  position: absolute;
   bottom: 0 !important;
   left: 0 !important;
-  z-index: 100;
+  
 `
 
 export const FooterContent = styled.div`

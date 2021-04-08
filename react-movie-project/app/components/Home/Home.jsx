@@ -54,6 +54,7 @@ export const HomeImage = styled.div`
 export const HomeSection = styled.section`
   height: 100%;
   width: 100%;
+  
 `
 
 export const HomeHeaderWrapper = styled.div`
@@ -180,4 +181,29 @@ export const RightSideContent = styled.div`
     order: 2;
     border: none !important;
   }
+`
+
+
+export const AdvisorBoxWrapper = styled.div`
+  padding:10rem;
+  border:1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+`
+
+export const AdvisorBoxContent = styled.div`
+  border: 1px solid orange;
+  width:100%;
+  display:flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+
+  img{
+    margin-left:5%;
+  }
+
+
 `

@@ -15,6 +15,7 @@ import HomePage from 'containers/HomePage/HomePage'
 import '../../styles/styles.scss'
 import Navbar from '../Navbar/Navbar'
 import GlobalStyle from '../../components/global'
+import Footer from '../Footer/Footer'
 
 export default function App(props) {
   window.onbeforeunload = function() {
@@ -32,6 +33,7 @@ export default function App(props) {
         <Route path="/" component={HomePage} exact />
         <Route path="/home" component={HomePage} />
       </Switch>
+      <Footer/>
     </div>
   )
 }

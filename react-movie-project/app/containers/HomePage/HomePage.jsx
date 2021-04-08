@@ -15,11 +15,14 @@ import {
   LeftSideContent,
   RightSideContent,
   ButtonContainer,
+  AdvisorBoxWrapper,
+  AdvisorBoxContent,
 } from '../../components/Home/Home'
 import Fade from 'react-reveal/Fade'
 import Rotate from 'react-reveal/Rotate'
 import Wobble from 'react-reveal/Wobble'
 import RubberBand from 'react-reveal/RubberBand'
+import Zoom from 'react-reveal/Zoom';
 
 export function HomePage(props) {
   const history = useHistory()
@@ -74,13 +77,13 @@ export function HomePage(props) {
           </LeftSideContent>
         </Fade>
         <RightSideContent round="true">
-          <img src="https://ak.picdn.net/shutterstock/videos/33621025/thumb/1.jpg" />
+          <img src="https://chronicle.brightspotcdn.com/87/cb/8ca9f0c8c929f40d0ccb7faf3b4f/vitae-diversity-blogging.jpg" />
         </RightSideContent>
       </ContentWrapper>
 
       <ContentWrapper>
         <RightSideContent>
-          <img src="https://image.freepik.com/free-vector/clapperboard-popcorn-ticket-movie_18591-3586.jpg" />
+          <img src="https://cloudfront-us-east-1.images.arcpublishing.com/advancelocal/2GXL5NEMQNGB7PS4KH62UEHKM4.jpg" />
         </RightSideContent>
         <Rotate bottom right>
           <LeftSideContent>
@@ -116,9 +119,20 @@ export function HomePage(props) {
           </HomeButton>
         </ButtonContainer>
       </HomeImage>
-      <h1> why</h1>
-      <h1>I am no Jedig.</h1>
-      <p>&mdash; Ahsoka Tano</p>
+      <AdvisorBoxWrapper>
+        <Zoom>
+        <AdvisorBoxContent>
+          <img
+            className="ashoka-pic"
+            src="https://thathashtagshow.com/wp-content/uploads/2020/06/Ahsoka-Tano-Cover.jpg"
+          />
+          <div>
+            <h1>I am no Jedi.</h1>
+            <blockquote>&mdash; Ahsoka Tano</blockquote>
+          </div>
+        </AdvisorBoxContent>
+        </Zoom>
+      </AdvisorBoxWrapper>
       <button
         onClick={() =>
           window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })

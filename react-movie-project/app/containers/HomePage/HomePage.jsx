@@ -19,6 +19,7 @@ import {
 import Fade from 'react-reveal/Fade'
 import Rotate from 'react-reveal/Rotate'
 import Wobble from 'react-reveal/Wobble'
+import RubberBand from 'react-reveal/RubberBand'
 
 export function HomePage(props) {
   const history = useHistory()
@@ -56,6 +57,11 @@ export function HomePage(props) {
           </HomeButton>
         </ButtonContainer>
       </HomeImage>
+      <RubberBand>
+        <h1 className="home-content-header">
+          <span>Express Yourself</span> With the things you love
+        </h1>
+      </RubberBand>
       <ContentWrapper>
         <Fade top>
           <LeftSideContent>
@@ -67,7 +73,7 @@ export function HomePage(props) {
             </p>
           </LeftSideContent>
         </Fade>
-        <RightSideContent round = "true">
+        <RightSideContent round="true">
           <img src="https://ak.picdn.net/shutterstock/videos/33621025/thumb/1.jpg" />
         </RightSideContent>
       </ContentWrapper>
@@ -91,7 +97,7 @@ export function HomePage(props) {
             <p>Read Reviews from all over the world or write your own!</p>
           </LeftSideContent>
         </Fade>
-        <RightSideContent round = "true">
+        <RightSideContent round="true">
           <img src="https://ak.picdn.net/shutterstock/videos/33621025/thumb/1.jpg" />
         </RightSideContent>
       </ContentWrapper>

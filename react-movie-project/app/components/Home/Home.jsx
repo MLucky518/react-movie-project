@@ -75,7 +75,7 @@ export const HomeHeaderWrapper = styled.div`
   span {
     font-size: 4rem;
     font-family: 'Montserrat', sans-serif;
-    color: #d09f25;
+    color: #CF6920;
   }
 `
 

@@ -17,6 +17,9 @@ import Navbar from '../Navbar/Navbar'
 import GlobalStyle from '../../components/global'
 
 export default function App(props) {
+  window.onbeforeunload = function() {
+    window.scrollTo(0, 0)
+  }
   return (
     <div className="app-wrapper">
       <GlobalStyle />

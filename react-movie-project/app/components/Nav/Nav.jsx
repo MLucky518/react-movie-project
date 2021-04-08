@@ -9,7 +9,7 @@ export const Nav = styled.nav`
   justify-content: space-around;
   position: fixed;
   padding: 1rem 2rem;
-  z-index: 100;
+  z-index: 1;
   width: 100%;
   @media screen and (max-width: 768px) {
     justify-content: space-between;
@@ -25,8 +25,8 @@ export const Logo = styled.img`
   cursor: pointer;
   @media screen and (max-width: 768px) {
     height: 30px;
-    bottom:10%;
-    right:20%;
+    bottom: 10%;
+    right: 20%;
   }
 `
 
@@ -51,7 +51,7 @@ export const NavMenu = styled.div`
 `
 
 export const MenuLinks = styled(Link)`
-  font-weight: 500;
+  font-weight: 600;
   color: ${({ primary }) => (primary ? '#364547' : 'black')};
   font-size: 1rem;
   display: flex;

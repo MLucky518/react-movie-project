@@ -15,6 +15,7 @@ const fetchReviews = (action$, state$, { get }) =>
       from(get('/static/movie-reviews.json')).pipe(
         map(response => {
           let payload = response.data
+          console.log(payload)
           return {
             type: REVIEWS_FETCH_SUCCESS,
             payload,

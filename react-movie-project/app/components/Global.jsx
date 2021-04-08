@@ -23,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
         span{
             color:#CF6920;
             font-size:4rem;
+            font-family:"Caveat",cursive;
         }
     }
 
@@ -33,6 +34,24 @@ const GlobalStyle = createGlobalStyle`
         padding:2%;
         margin-right:5%;
     }
+
+    .scrollIcon{
+    position: fixed; 
+    width: 100%;
+    bottom: 20px;
+    left:40%;
+    align-items: center;
+    height: 20px;
+    justify-content: center;
+    z-index: 1000;
+    cursor: pointer;
+    animation: fadeIn 0.3s;
+    transition: opacity 0.4s;
+    color:#CF6920;
+    }
+
+
+
 
    
 

@@ -196,7 +196,7 @@ export const AdvisorBoxWrapper = styled.div`
 
 export const AdvisorBoxContent = styled.div`
   border: 1px solid orange;
-  width:100%;
+  width:800px;
   display:flex;
   justify-content: flex-start;
   align-items: flex-end;
@@ -204,6 +204,11 @@ export const AdvisorBoxContent = styled.div`
   img{
     margin-left:5%;
   }
-
+  @media screen and (max-width: 768px) {
+    width:100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
 `

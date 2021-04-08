@@ -22,10 +22,22 @@ import Fade from 'react-reveal/Fade'
 import Rotate from 'react-reveal/Rotate'
 import Wobble from 'react-reveal/Wobble'
 import RubberBand from 'react-reveal/RubberBand'
-import Zoom from 'react-reveal/Zoom';
+import Zoom from 'react-reveal/Zoom'
+import { IoArrowUpSharp } from 'react-icons/io5'
 
 export function HomePage(props) {
   const history = useHistory()
+  const [showScroll, setShowScroll] = useState(false)
+
+  const checkScrollPosition = () => {
+    if (!showScroll && window.pageYOffset > 500) {
+      setShowScroll(true)
+    } else if (showScroll && window.pageYOffset <= 500) {
+      setShowScroll(false)
+    }
+  }
+
+  window.addEventListener('scroll', checkScrollPosition)
 
   useEffect(() => {
     props.getMovieReviews()
@@ -65,6 +77,11 @@ export function HomePage(props) {
           <span>Express Yourself</span> With the things you love
         </h1>
       </RubberBand>
+      <IoArrowUpSharp
+        className="scrollIcon"
+        onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })}
+        style={{ height: 40, display: showScroll ? 'flex' : 'none' }}
+      />
       <ContentWrapper>
         <Fade top>
           <LeftSideContent>
@@ -76,15 +93,21 @@ export function HomePage(props) {
             </p>
           </LeftSideContent>
         </Fade>
+
         <RightSideContent round="true">
-          <img src="https://chronicle.brightspotcdn.com/87/cb/8ca9f0c8c929f40d0ccb7faf3b4f/vitae-diversity-blogging.jpg" />
+          <Fade>
+            <img src="https://chronicle.brightspotcdn.com/87/cb/8ca9f0c8c929f40d0ccb7faf3b4f/vitae-diversity-blogging.jpg" />
+          </Fade>
         </RightSideContent>
       </ContentWrapper>
 
       <ContentWrapper>
         <RightSideContent>
-          <img src="https://cloudfront-us-east-1.images.arcpublishing.com/advancelocal/2GXL5NEMQNGB7PS4KH62UEHKM4.jpg" />
+          <Fade>
+            <img src="https://cloudfront-us-east-1.images.arcpublishing.com/advancelocal/2GXL5NEMQNGB7PS4KH62UEHKM4.jpg" />
+          </Fade>
         </RightSideContent>
+
         <Rotate bottom right>
           <LeftSideContent>
             <h1>Phrase</h1>
@@ -100,14 +123,15 @@ export function HomePage(props) {
             <p>Read Reviews from all over the world or write your own!</p>
           </LeftSideContent>
         </Fade>
+
         <RightSideContent round="true">
-          <img src="https://ak.picdn.net/shutterstock/videos/33621025/thumb/1.jpg" />
+          <Fade>
+            <img src="https://ak.picdn.net/shutterstock/videos/33621025/thumb/1.jpg" />
+          </Fade>
         </RightSideContent>
       </ContentWrapper>
       <HomeImage style={{ alignItems: 'flex-start' }}>
-        <h2 style={{ marginLeft: '5%', fontSize: '3rem' }}>
-          Share and talk about what you love
-        </h2>
+        <h2 style={{ marginLeft: '5%' }}>Share and talk about what you love</h2>
         <ButtonContainer
           style={{ justifyContent: 'flex-start', marginLeft: '15%' }}>
           <HomeButton primary="true" big="true" round="true">
@@ -121,24 +145,18 @@ export function HomePage(props) {
       </HomeImage>
       <AdvisorBoxWrapper>
         <Zoom>
-        <AdvisorBoxContent>
-          <img
-            className="ashoka-pic"
-            src="https://thathashtagshow.com/wp-content/uploads/2020/06/Ahsoka-Tano-Cover.jpg"
-          />
-          <div>
-            <h1>I am no Jedi.</h1>
-            <blockquote>&mdash; Ahsoka Tano</blockquote>
-          </div>
-        </AdvisorBoxContent>
+          <AdvisorBoxContent>
+            <img
+              className="ashoka-pic"
+              src="https://thathashtagshow.com/wp-content/uploads/2020/06/Ahsoka-Tano-Cover.jpg"
+            />
+            <div>
+              <h1>I am no Jedi.</h1>
+              <blockquote>&mdash; Ahsoka Tano</blockquote>
+            </div>
+          </AdvisorBoxContent>
         </Zoom>
       </AdvisorBoxWrapper>
-      <button
-        onClick={() =>
-          window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
-        }>
-        UP
-      </button>
     </HomeSection>
   )
 }

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const FooterContainer = styled.section`
-  background: #f68431;
+  background: #85A2D6;
   height: 150px;
   width: 100%;
   position: absolute;

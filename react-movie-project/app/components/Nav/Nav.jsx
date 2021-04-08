@@ -52,7 +52,7 @@ export const NavMenu = styled.div`
 
 export const MenuLinks = styled(Link)`
   font-weight: 600;
-  color: ${({ primary }) => (primary ? '#364547' : 'black')};
+  color: ${({ primary }) => (primary ? '#587FC3' : 'black')};
   font-size: 1rem;
   display: flex;
   align-items: center;

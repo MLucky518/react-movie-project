@@ -1,15 +1,20 @@
 import styled from 'styled-components'
 
 export const HomeImage = styled.div`
-  width: 100%;
-  height: 500px;
-  background-image: url('http://analyticsindiamag.com/wp-content/uploads/2014/10/cine.jpg');
+  width: 99%;
+  margin-left:0.3%;
+  height: 700px;
+  background-image: url('https://rdcnewscdn.realtor.com/wp-content/uploads/2015/02/iStock_000002787011_Small.jpg');
   background-attachment: fixed;
   background-position: center;
-  background-repeat: no-repeat;
+  background-color: #f6f2e8;
   background-size: cover;
   box-shadow: 0 0 30px #333;
   filter: saturate(120%);
+
+  h2{
+    color:white
+  }
   &::before {
     opacity: 0.4;
     background: linear-gradient(
@@ -43,7 +48,7 @@ export const HomeHeaderWrapper = styled.div`
   h1 {
     font-family: 'Train One', cursive;
     font-size: 3rem;
-    color: #5f939a;
+    color: #587FC3;
     height: 30%;
 
     @media screen and (max-width: 768px) {
@@ -58,7 +63,7 @@ export const HomeHeaderWrapper = styled.div`
   span {
     font-size: 4rem;
     font-family: 'Montserrat', sans-serif;
-    color: #364547;
+    color: #D09F25;
   }
 `
 

@@ -44,7 +44,9 @@ export function HomePage(props) {
           <TrophyImage src="https://thumbs.dreamstime.com/b/golden-film-strip-cup-stand-isolated-d-rendering-white-background-entertainment-concept-165553595.jpg" />
         </HomeHeader>
       </HomeHeaderWrapper>
-      <HomeImage />
+      <HomeImage>
+        <h2>Hello</h2>
+      </HomeImage>
       <ContentWrapper>
         <Fade top>
           <LeftSideContent>

@@ -32,7 +32,7 @@ export const Logo = styled.img`
 
 export const MenuBars = styled.i`
   display: none;
-
+ color:#587FC3;
   @media screen and (max-width: 768px) {
     display: flex;
     justify-content: center;
@@ -52,8 +52,8 @@ export const NavMenu = styled.div`
 
 export const MenuLinks = styled(Link)`
   font-weight: 600;
-  color: ${({ primary }) => (primary ? '#587FC3' : 'black')};
-  font-size: 1rem;
+  color: ${({ primary }) => (primary ? '#587FC3' : 'white')};
+  font-size: ${({ big }) => (big ? '1.5rem' : '1rem')};
   display: flex;
   align-items: center;
   padding: ${({ footer }) => (footer ? '0 0rem ' : '0 2rem')};

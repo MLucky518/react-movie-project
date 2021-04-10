@@ -6,7 +6,7 @@
  * contain code that should be seen on all pages. (e.g. navigation bar)
  */
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Helmet } from 'react-helmet' // Header Generator
 import { Switch, Route } from 'react-router-dom'
 
@@ -16,8 +16,16 @@ import '../../styles/styles.scss'
 import Navbar from '../Navbar/Navbar'
 import GlobalStyle from '../../components/global'
 import Footer from '../Footer/Footer'
+import Dropdown from '../Navbar/Dropdown'
 
 export default function App(props) {
+  const [isOpen, setIsOpen] = useState(false)
+
+
+  const dropdownToggle = () =>{
+    setIsOpen(!isOpen);
+  }
+
   window.onbeforeunload = function() {
     window.scrollTo(0, 0)
   }
@@ -27,13 +35,13 @@ export default function App(props) {
       <Helmet defaultTitle="Everyone's a critic">
         <meta name="description" content="React Movie Reviews" />
       </Helmet>
-      <Navbar />
-
+      <Navbar toggle = {dropdownToggle} />
+      <Dropdown toggle = {dropdownToggle} isOpen = {isOpen}/>
       <Switch>
         <Route path="/" component={HomePage} exact />
         <Route path="/home" component={HomePage} />
       </Switch>
-      <Footer/>
+      <Footer />
     </div>
   )
 }

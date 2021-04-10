@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet' // Header Generator
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { Switch, Route, useHistory } from 'react-router-dom'
-import { HomeButton } from '.././../components/Buttons/Button'
+import { Button } from '.././../components/Buttons/Button'
 import { getMovieReviews } from 'resources/reviews/reviews.actions'
 import {
   HomeImage,
@@ -40,8 +40,12 @@ export function HomePage(props) {
   window.addEventListener('scroll', checkScrollPosition)
 
   useEffect(() => {
+    console.log(props)
     props.getMovieReviews()
+    
   }, [])
+
+  console.log(props.data)
 
   return (
     <HomeSection>
@@ -63,13 +67,13 @@ export function HomePage(props) {
       <HomeImage top="true">
         <h2>Find Your Voice</h2>
         <ButtonContainer>
-          <HomeButton primary="true" big="true" round="true">
+          <Button primary="true" big="true" round="true">
             2-Min Video
-          </HomeButton>
+          </Button>
 
-          <HomeButton primary="true" round="true">
+          <Button style = {{marginLeft:"20px"}} primary="true" round="true">
             Demo
-          </HomeButton>
+          </Button>
         </ButtonContainer>
       </HomeImage>
       <RubberBand>
@@ -123,7 +127,10 @@ export function HomePage(props) {
             <p>Read Reviews from all over the world or write your own!</p>
           </LeftSideContent>
         </Fade>
-
+        {props.data &&
+          props.data.map(map => {
+            console.log(map)
+          })}
         <RightSideContent round="true">
           <Fade>
             <img src="https://ak.picdn.net/shutterstock/videos/33621025/thumb/1.jpg" />
@@ -134,13 +141,13 @@ export function HomePage(props) {
         <h2 style={{ marginLeft: '5%' }}>Share and talk about what you love</h2>
         <ButtonContainer
           style={{ justifyContent: 'flex-start', marginLeft: '15%' }}>
-          <HomeButton primary="true" big="true" round="true">
+          <Button primary="true" big="true" round="true">
             2-Min Video
-          </HomeButton>
+          </Button>
 
-          <HomeButton primary="true" round="true">
+          <Button style = {{marginLeft:"20px"}} primary="true" round="true">
             Demo
-          </HomeButton>
+          </Button>
         </ButtonContainer>
       </HomeImage>
       <AdvisorBoxWrapper>
@@ -161,17 +168,18 @@ export function HomePage(props) {
   )
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return state
+const mapStateToProps = state => {
+  console.log(state,"state")
+  return {
+    data: state.resources.reviews.data,
+  }
 }
 
 const mapDispatchToProps = dispatch => ({
   getMovieReviews: () => dispatch(getMovieReviews()),
 })
 
-export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(HomePage)

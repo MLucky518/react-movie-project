@@ -3,14 +3,14 @@ import styled from 'styled-components'
 export const HomeImage = styled.div`
   width: 99%;
   margin-left: 0.5%;
-  height: 700px;
+  height: 750px;
   background-image: url(${({ top }) => (top ? 'https://ei.marketwatch.com/Multimedia/2020/05/21/Photos/ZQ/MW-IG985_Movies_20200521113911_ZQ.jpg?uuid=378c769c-9b79-11ea-bd9d-9c8e992d421e' : 'https://content.active.com/Assets/Active.com+Content+Site+Digital+Assets/Kids/Articles/9+Inspiring+Sports+Movies/family+watching+a+movie-carousel.jpg')});
   background-attachment: fixed;
   background-position: center;
   background-color: #f6f2e8;
   background-size: cover;
   box-shadow: 0 0 30px #333;
-  filter: saturate(120%);
+  filter: saturate(180%);
   display: flex;
   flex-direction: column;
   align-items: center;

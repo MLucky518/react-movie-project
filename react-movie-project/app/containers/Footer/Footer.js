@@ -20,12 +20,6 @@ const Footer = () => {
           )
         })}
         <p style={{ color: 'white' }}>&#169; HES</p>
-        <button
-        onClick={() =>
-          window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
-        }>
-        UP
-      </button>
       </FooterContent>
     </FooterContainer>
   )

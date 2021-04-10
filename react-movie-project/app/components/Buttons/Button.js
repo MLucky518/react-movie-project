@@ -11,9 +11,10 @@ export const NavButton = styled.div`
   }
 `
 
-export const HomeButton = styled(Link)`
+export const Button = styled(Link)`
   background: ${({ primary }) => (primary ? '#85A2D6' : 'CD853f')};
   white-space: nowrap;
+  
   outline: none;
   border: none;
   min-width: 10px;
@@ -29,12 +30,14 @@ export const HomeButton = styled(Link)`
   padding: ${({ big }) => (big ? '16px 40px' : '14px 24px')};
   color: ${({ primary }) => (primary ? '#fff' : '000d1a')};
   font-size: 16px;
-  margin-left: 20px;
   font-weight: bold;
   &:hover {
     transform: translateY(-2px);
-    background:black;
+    background: black;
+    opacity: 0.8;
+  }
+  &:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(5px);
   }
 `
-
-

@@ -40,12 +40,10 @@ export function HomePage(props) {
   window.addEventListener('scroll', checkScrollPosition)
 
   useEffect(() => {
-    console.log(props)
     props.getMovieReviews()
-    
   }, [])
 
-  console.log(props.data)
+  
 
   return (
     <HomeSection>
@@ -71,7 +69,7 @@ export function HomePage(props) {
             2-Min Video
           </Button>
 
-          <Button style = {{marginLeft:"20px"}} primary="true" round="true">
+          <Button style={{ marginLeft: '20px' }} primary="true" round="true">
             Demo
           </Button>
         </ButtonContainer>
@@ -89,7 +87,7 @@ export function HomePage(props) {
       <ContentWrapper>
         <Fade top>
           <LeftSideContent>
-            <h3>Find Wellness in sharing your voice</h3>
+            <h3>Find Happiness in sharing your voice</h3>
             <p>
               Read Reviews from all over the world or write your own! Earn
               Reward Points for every review to use towards health perks (free
@@ -114,8 +112,12 @@ export function HomePage(props) {
 
         <Rotate bottom right>
           <LeftSideContent>
-            <h1>Phrase</h1>
-            <p>paragraph</p>
+            <h3 style={{ color: '#CF6920' }}>Motivation through Results</h3>
+            <p>
+              We know how hard it is to stay motivated, and thats why we have
+              you covered! Our Reward and Perks system give you the motivation
+              to work out whether youre at the gym, home or the office
+            </p>
           </LeftSideContent>
         </Rotate>
       </ContentWrapper>
@@ -123,14 +125,16 @@ export function HomePage(props) {
       <ContentWrapper>
         <Fade bottom>
           <LeftSideContent>
-            <h3>Find Wellness in sharing your voice</h3>
-            <p>Read Reviews from all over the world or write your own!</p>
+            <h3>Community based wellness</h3>
+            <p>
+              Be a part of a growing community of passionate people like
+              yourself. Join real critics and other people just like you in
+              delivering quality reviews for you favorite movies and TV shows.
+              Here EVERYONE IS A CRITIC
+            </p>
           </LeftSideContent>
         </Fade>
-        {props.data &&
-          props.data.map(map => {
-            console.log(map)
-          })}
+
         <RightSideContent round="true">
           <Fade>
             <img src="https://ak.picdn.net/shutterstock/videos/33621025/thumb/1.jpg" />
@@ -145,7 +149,7 @@ export function HomePage(props) {
             2-Min Video
           </Button>
 
-          <Button style = {{marginLeft:"20px"}} primary="true" round="true">
+          <Button style={{ marginLeft: '20px' }} primary="true" round="true">
             Demo
           </Button>
         </ButtonContainer>
@@ -169,7 +173,6 @@ export function HomePage(props) {
 }
 
 const mapStateToProps = state => {
-  console.log(state,"state")
   return {
     data: state.resources.reviews.data,
   }

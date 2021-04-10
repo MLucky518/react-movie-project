@@ -148,14 +148,16 @@ export const LeftSideContent = styled.div`
 
   h3 {
     margin-bottom: 2rem;
-    font-size: clamp(1.5rem, 6vw, 2rem);
+    font-size: clamp(1.5rem, 6vw, 3rem);
+    font-family: 'Train One', cursive;
+    color: #587fc3;
   }
 
   p {
     margin-bottom: 2rem;
-    font-size: clamp(0.3rem, 12vw, 1rem);
+    font-size: clamp(0.7rem, 6vw, 1rem);
     text-shadow: 0.3px 0.3px 0.3px black;
-    font-weight: 600;
+    font-weight: 550;
     display: flex;
     flex-wrap: wrap;
   }

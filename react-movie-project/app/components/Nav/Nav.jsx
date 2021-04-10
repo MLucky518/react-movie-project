@@ -32,7 +32,7 @@ export const Logo = styled.img`
 
 export const MenuBars = styled.i`
   display: none;
- color:#587FC3;
+  color: #587fc3;
   @media screen and (max-width: 768px) {
     display: flex;
     justify-content: center;

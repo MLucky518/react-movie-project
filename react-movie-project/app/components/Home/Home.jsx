@@ -40,7 +40,9 @@ export const HomeImage = styled.div`
   @media screen and (max-width: 768px) {
     background-attachment: local;
     background-position: center;
-    height: 250px;
+    width:95%;
+    margin-left:2%;
+    padding:2rem;
     justify-content:center;
     align-items: center;
     h2 {

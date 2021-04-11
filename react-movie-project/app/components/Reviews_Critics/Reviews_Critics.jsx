@@ -31,10 +31,11 @@ export const HeroImage = styled.img``
 export const CardImage = styled.img`
   height: 250px;
   width: 100%;
-  filter: saturate(150%);
+  filter: contrast(120%);
 `
 export const Card = styled.div`
   width: 19%;
+  line-height: 1.4;
   margin: 9px;
   margin-bottom: 2%;
   box-shadow: 0 0 30px #333;
@@ -43,9 +44,11 @@ export const Card = styled.div`
   justify-content: center;
   align-items: center;
   transition: 0.3s;
-  @media screen and (max-width: 768px) {
+  cursor: pointer;
+  @media screen and (max-width: 1100px) {
     width: 100%;
   }
+  
 
   &:hover {
     transform: translateY(-7px);
@@ -69,5 +72,5 @@ export const CardContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 `

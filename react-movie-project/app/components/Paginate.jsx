@@ -12,4 +12,8 @@ export const PaginateNumbers = styled.ul`
   display: flex;
   justify-content: space-evenly;
   list-style-type: none;
+  a {
+    color: #f68431;
+    font-size: 1.6rem;
+  }
 `

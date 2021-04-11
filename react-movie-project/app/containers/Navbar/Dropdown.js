@@ -8,7 +8,7 @@ import {
   DropMenu,
 } from '../../components/Nav/DropDown'
 import { MenuLinks } from '../../components/Nav/Nav'
-import { menuData } from '../../helpers/data'
+import { dropdownData } from '../../helpers/data'
 
 const Dropdown = ({ isOpen, toggle }) => {
   return (
@@ -18,7 +18,7 @@ const Dropdown = ({ isOpen, toggle }) => {
       </Icon>
       <DropdownContent>
         <DropMenu>
-          {menuData.map((item, idx) => {
+          {dropdownData.map((item, idx) => {
             return (
               <MenuLinks primary="true" big="true" to={item.link} key={idx}>
                 {item.title}

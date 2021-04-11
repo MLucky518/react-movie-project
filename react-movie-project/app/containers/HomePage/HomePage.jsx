@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { Switch, Route, useHistory } from 'react-router-dom'
 import { Button } from '.././../components/Buttons/Button'
 import { getMovieReviews } from 'resources/reviews/reviews.actions'
+import { getCritics } from 'resources/critics/critics.actions'
 import {
   HomeImage,
   HomeSection,
@@ -29,7 +30,9 @@ export function HomePage(props) {
 
   useEffect(() => {
     props.getMovieReviews()
+    props.getCritics()
   }, [])
+  console.log(props, 'props')
 
   return (
     <HomeSection>
@@ -162,6 +165,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   getMovieReviews: () => dispatch(getMovieReviews()),
+  getCritics: () => dispatch(getCritics()),
 })
 
 export default compose(

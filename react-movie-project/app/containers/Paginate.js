@@ -16,7 +16,7 @@ export const Pagination = ({ perPage, total, paginate }) => {
               <a
                 onClick={() => paginate(pageNum)}
                 href="#"
-                style={{ color: 'red' }}>
+                >
                 {pageNum}
               </a>
             </li>

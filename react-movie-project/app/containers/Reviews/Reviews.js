@@ -8,6 +8,7 @@ import {
 } from '../../components/Reviews_Critics/Reviews_Critics.jsx'
 import { Pagination } from '../Paginate'
 import { connect } from 'react-redux'
+import { GiTrophy } from 'react-icons/gi'
 
 const Reviews = props => {
   const [reviews, setReviews] = useState([])
@@ -16,6 +17,7 @@ const Reviews = props => {
 
   useEffect(() => {
     setReviews(props.data)
+    
   }, [])
 
   const indexOfLastPost = currentPage * reviewsPerPage
@@ -43,8 +45,14 @@ const Reviews = props => {
               <CardContent>
                 <h4>{item.display_title}</h4>
                 <time>{item.publication_date}</time>
-                <p>{item.mpaa_rating}</p>
-                <p>{item.critics_pick === 1 ? 'CRITICS PICK ' : ' '}</p>
+                <p>
+                  {item.mpaa_rating ? item.mpaa_rating : 'Rating not available'}
+                </p>
+                {item.critics_pick === 1 ? (
+                  <GiTrophy style={{ color: 'orange' }} />
+                ) : (
+                  ''
+                )}
               </CardContent>
             </Card>
           )

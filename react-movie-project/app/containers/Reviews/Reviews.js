@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { ReviewListWrapper } from '../../components/Reviews/Reviews'
+import {
+  Card,
+  CardImage,
+  ListWrapper,
+  List,
+  CardContent,
+} from '../../components/Reviews_Critics/Reviews_Critics.jsx'
 import { Pagination } from '../Paginate'
 import { connect } from 'react-redux'
 
@@ -19,24 +25,32 @@ const Reviews = props => {
   const paginate = pageNumber => {
     setCurrentPage(pageNumber)
   }
-  return (
-    <ReviewListWrapper>
-      <div>
-        <div>
-          <div>
-            {currentReviews.map(item => {
-              return <div>{item.display_title}</div>
-            })}
-          </div>
-        </div>
-      </div>
 
+  return (
+    <ListWrapper>
+      <h1>Reviews</h1>
       <Pagination
         perPage={reviewsPerPage}
         total={reviews.length}
         paginate={paginate}
       />
-    </ReviewListWrapper>
+
+      <List>
+        {currentReviews.map((item, idx) => {
+          return (
+            <Card key={idx}>
+              <CardImage src={item.multimedia.src} />
+              <CardContent>
+                <h4>{item.display_title}</h4>
+                <time>{item.publication_date}</time>
+                <p>{item.mpaa_rating}</p>
+                <p>{item.critics_pick === 1 ? 'CRITICS PICK ' : ' '}</p>
+              </CardContent>
+            </Card>
+          )
+        })}
+      </List>
+    </ListWrapper>
   )
 }
 

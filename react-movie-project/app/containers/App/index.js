@@ -18,9 +18,22 @@ import GlobalStyle from '../../components/global'
 import Footer from '../Footer/Footer'
 import Dropdown from '../Navbar/Dropdown'
 import Reviews from '../Reviews/Reviews'
+import { IoArrowUpSharp } from 'react-icons/io5'
 
 export default function App(props) {
   const [isOpen, setIsOpen] = useState(false)
+
+  const [showScroll, setShowScroll] = useState(false)
+
+  const checkScrollPosition = () => {
+    if (!showScroll && window.pageYOffset > 500) {
+      setShowScroll(true)
+    } else if (showScroll && window.pageYOffset <= 500) {
+      setShowScroll(false)
+    }
+  }
+
+  window.addEventListener('scroll', checkScrollPosition)
 
   useEffect(() => {}, [])
 
@@ -39,13 +52,18 @@ export default function App(props) {
       </Helmet>
       <Navbar toggle={dropdownToggle} />
       <Dropdown toggle={dropdownToggle} isOpen={isOpen} />
+
       <Switch>
         <Route path="/" component={HomePage} exact />
         <Route path="/home" component={HomePage} />
-        <Route path="/reviews">
-          <Reviews />
-        </Route>
+        <Route path="/reviews" component={Reviews} />
       </Switch>
+
+      <IoArrowUpSharp
+        className="scrollIcon"
+        onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })}
+        style={{ height: 40, display: showScroll ? 'flex' : 'none' }}
+      />
       <Footer />
     </div>
   )

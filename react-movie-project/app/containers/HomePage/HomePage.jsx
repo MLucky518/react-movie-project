@@ -23,27 +23,13 @@ import Rotate from 'react-reveal/Rotate'
 import Wobble from 'react-reveal/Wobble'
 import RubberBand from 'react-reveal/RubberBand'
 import Zoom from 'react-reveal/Zoom'
-import { IoArrowUpSharp } from 'react-icons/io5'
 
 export function HomePage(props) {
   const history = useHistory()
-  const [showScroll, setShowScroll] = useState(false)
-
-  const checkScrollPosition = () => {
-    if (!showScroll && window.pageYOffset > 500) {
-      setShowScroll(true)
-    } else if (showScroll && window.pageYOffset <= 500) {
-      setShowScroll(false)
-    }
-  }
-
-  window.addEventListener('scroll', checkScrollPosition)
 
   useEffect(() => {
     props.getMovieReviews()
   }, [])
-
-  
 
   return (
     <HomeSection>
@@ -79,11 +65,7 @@ export function HomePage(props) {
           <span>Express Yourself</span> With the things you love
         </h1>
       </RubberBand>
-      <IoArrowUpSharp
-        className="scrollIcon"
-        onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })}
-        style={{ height: 40, display: showScroll ? 'flex' : 'none' }}
-      />
+
       <ContentWrapper>
         <Fade top>
           <LeftSideContent>
@@ -182,7 +164,9 @@ const mapDispatchToProps = dispatch => ({
   getMovieReviews: () => dispatch(getMovieReviews()),
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+export default compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )
 )(HomePage)

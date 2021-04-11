@@ -1,5 +1,5 @@
 import React from 'react'
-import { PaginateContainer } from '../components/Paginate'
+import { PaginateContainer, PaginateNumbers } from '../components/Paginate'
 
 export const Pagination = ({ perPage, total, paginate }) => {
   const pageNumbers = []
@@ -9,7 +9,7 @@ export const Pagination = ({ perPage, total, paginate }) => {
   }
   return (
     <PaginateContainer>
-      <ul>
+      <PaginateNumbers>
         {pageNumbers.map(pageNum => {
           return (
             <li key={pageNum}>
@@ -22,7 +22,7 @@ export const Pagination = ({ perPage, total, paginate }) => {
             </li>
           )
         })}
-      </ul>
+      </PaginateNumbers>
     </PaginateContainer>
   )
 }

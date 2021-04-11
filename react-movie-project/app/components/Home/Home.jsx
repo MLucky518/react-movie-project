@@ -71,7 +71,7 @@ export const HomeHeaderWrapper = styled.div`
     height: 30%;
 
     @media screen and (max-width: 768px) {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
   }
 
@@ -184,6 +184,11 @@ export const RightSideContent = styled.div`
   @media screen and (max-width: 768px) {
     order: 2;
     border: none !important;
+    img{
+      height:350px;
+      width:350px;
+      margin-right:15%;
+    }
   }
 `
 

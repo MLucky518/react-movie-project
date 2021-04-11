@@ -37,11 +37,11 @@ const GlobalStyle = createGlobalStyle`
 
     .scrollIcon{
     position: fixed; 
-    width: 100%;
-    bottom: 20px;
-    left:40%;
+    width: 50px;
+    bottom: 70px;
+    right:100px;
     align-items: center;
-    height: 20px;
+    height: 50px;
     justify-content: center;
     z-index: 1000;
     cursor: pointer;
@@ -49,8 +49,6 @@ const GlobalStyle = createGlobalStyle`
     transition: opacity 0.4s;
     color:#CF6920;
     }
-
-
 
 
    

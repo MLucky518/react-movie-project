@@ -1,4 +1,6 @@
-import styled from 'styled-components'
+import styled from "styled-components";
+
+//////   STYLES FOR THE LIST CONTAINERS ///////
 
 export const ListWrapper = styled.section`
   height: 100%;
@@ -14,7 +16,7 @@ export const ListWrapper = styled.section`
     font-family: 'Train One', cursive;
     font-size: 5rem;
     color: #587fc3;
-    margin-bottom: 6%;
+    
 
     @media screen and (max-width: 768px) {
       font-size: 2rem;
@@ -25,8 +27,6 @@ export const ListWrapper = styled.section`
     height: 100%;
   }
 `
-
-export const HeroImage = styled.img``
 
 export const CardImage = styled.img`
   height: 250px;
@@ -48,7 +48,6 @@ export const Card = styled.div`
   @media screen and (max-width: 1100px) {
     width: 100%;
   }
-  
 
   &:hover {
     transform: translateY(-7px);
@@ -68,9 +67,49 @@ export const List = styled.div`
 export const CardContent = styled.div`
   height: 100%;
   width: 100%;
-
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 `
+
+/////// STYLES FOR INDIVIDUAL REVIEW/CRITIC CONTAINERS //////////////////////////////////
+
+export const InfoWrapper = styled.section`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 4rem;
+  padding-bottom: 10rem;
+
+  h1 {
+    font-family: 'Train One', cursive;
+    font-size: 2rem;
+    color: #587fc3;
+    margin-bottom: 6%;
+
+    @media screen and (max-width: 768px) {
+      font-size: 2rem;
+      margin-top: 20%;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    height: 100%;
+  }
+`
+
+export const Input = styled.input`
+    width: 20%;
+    border-bottom: 2px solid black !important;
+    background-color: #eee;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin: 10px 0 20px 0;
+    padding: 20px;
+`;

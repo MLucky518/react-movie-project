@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet' // Header Generator
 import { compose } from 'redux'
 import { connect } from 'react-redux'
-import { Switch, Route, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { Button } from '.././../components/Buttons/Button'
 import { getMovieReviews } from 'resources/reviews/reviews.actions'
 import { getCritics } from 'resources/critics/critics.actions'
@@ -26,12 +26,17 @@ import RubberBand from 'react-reveal/RubberBand'
 import Zoom from 'react-reveal/Zoom'
 
 export function HomePage(props) {
+  const [ locationKeys, setLocationKeys ] = useState([])
   const history = useHistory()
 
   useEffect(() => {
     props.getMovieReviews()
     props.getCritics()
   }, [])
+
+  useEffect(() =>{
+
+  },[])
   console.log(props, 'props')
 
   return (

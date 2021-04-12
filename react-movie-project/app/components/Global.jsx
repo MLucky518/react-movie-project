@@ -65,7 +65,34 @@ const GlobalStyle = createGlobalStyle`
 
 
    
+.info-card{
+    height:1000px !important;
+    width:1000px !important;
 
+    img{
+        height:500px;
+    }
+    p{
+        color:#CF6920;
+            font-size:2rem;
+            font-family:"Caveat",cursive;
+    }
+
+    @media screen and (max-width: 1100px) {
+        height:800px !important;
+    width:100% !important;
+
+    img{
+        height:400px;
+    }
+    p{
+        color:#CF6920;
+            font-size:2rem;
+            font-family:"Caveat",cursive;
+    }
+  }
+    
+}
     
 
 `

@@ -40,7 +40,6 @@ const Critics = props => {
         {currentCritics.map((item, idx) => {
           return (
             <Card key={idx}>
-             
               <CardContent>
                 <h4>{item.display_name}</h4>
               </CardContent>
@@ -59,11 +58,11 @@ const mapStateToProps = state => {
   }
 }
 
-//   const mapDispatchToProps = dispatch => ({
-//
-//   })
+const mapDispatchToProps = dispatch => ({
+  getCritics: () => dispatch(getCritics()),
+})
 
 export default connect(
   mapStateToProps,
-  {}
+  mapDispatchToProps
 )(Critics)

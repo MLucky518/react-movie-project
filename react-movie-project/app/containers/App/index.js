@@ -20,6 +20,7 @@ import Dropdown from '../Navbar/Dropdown'
 import Reviews from '../Reviews/Reviews'
 import { IoArrowUpSharp } from 'react-icons/io5'
 import Critics from '../Critics/Critics'
+import ReviewInfo from '../Reviews/ReviewInfo'
 
 export default function App(props) {
   const [isOpen, setIsOpen] = useState(false)
@@ -57,8 +58,9 @@ export default function App(props) {
       <Switch>
         <Route path="/" component={HomePage} exact />
         <Route path="/home" component={HomePage} />
-        <Route path="/reviews" component={Reviews} />
+        <Route exact path="/reviews" component={Reviews} />
         <Route path="/critics" component={Critics} />
+        <Route exact path = "/reviews/:id" render = {(props)=> <ReviewInfo {...props} />}/>
       </Switch>
 
       <IoArrowUpSharp

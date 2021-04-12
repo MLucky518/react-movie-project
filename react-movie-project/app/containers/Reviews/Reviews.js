@@ -20,14 +20,24 @@ const Reviews = props => {
   const [reviews, setReviews] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
   const [reviewsPerPage, setReviewsPerPage] = useState(50)
+  const [searched, setSearched] = useState('')
+  const [filtered, setFiltered] = useState([])
 
   useEffect(() => {
     setReviews(props.data)
   }, [])
 
+  useEffect(() => {
+    const filteredChars = props.data.filter(rev =>
+      rev.display_title.toLowerCase().includes(searched)
+    )
+
+    setFiltered(filteredChars)
+  }, [searched, props.data])
+
   const indexOfLastPost = currentPage * reviewsPerPage
   const indexOfFirstPost = indexOfLastPost - reviewsPerPage
-  const currentReviews = reviews.slice(indexOfFirstPost, indexOfLastPost)
+  const currentReviews = filtered.slice(indexOfFirstPost, indexOfLastPost)
 
   const paginate = pageNumber => {
     setCurrentPage(pageNumber)
@@ -52,10 +62,21 @@ const Reviews = props => {
     }
   }
 
+  const handleChange = e => {
+    e.preventDefault()
+    setSearched(e.target.value)
+  }
+
   return (
     <ListWrapper>
       <h1>Reviews</h1>
-      <Input/>
+      <label htmlFor="search">Search Reviews</label>
+      <Input
+        type="text"
+        name="search"
+        value={searched}
+        onChange={handleChange}
+      />
       <Pagination
         perPage={reviewsPerPage}
         total={reviews.length}
@@ -63,7 +84,7 @@ const Reviews = props => {
       />
       <p>Currently Viewing {reviewsPerPage} reviews per page</p>
 
-      <ButtonContainer style={{marginBottom:"5%"}}>
+      <ButtonContainer style={{ marginBottom: '5%' }}>
         <Button
           style={{ marginRight: '2%' }}
           onClick={() => setPerPage(false)}

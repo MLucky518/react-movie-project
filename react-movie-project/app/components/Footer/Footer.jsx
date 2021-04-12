@@ -33,7 +33,6 @@ export const FooterContent = styled.div`
 export const SocialMenu = styled.div`
   display: flex;
   align-items: center;
-  padding: 2rem;
   margin-right: 5%;
   @media screen and (max-width: 768px) {
     margin-right: 0%;

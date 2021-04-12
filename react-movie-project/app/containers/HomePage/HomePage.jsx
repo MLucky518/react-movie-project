@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet' // Header Generator
 import { compose } from 'redux'
 import { connect } from 'react-redux'
-import { Switch, Route, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { Button } from '.././../components/Buttons/Button'
 import { getMovieReviews } from 'resources/reviews/reviews.actions'
+import { getCritics } from 'resources/critics/critics.actions'
 import {
   HomeImage,
   HomeSection,
@@ -23,27 +24,15 @@ import Rotate from 'react-reveal/Rotate'
 import Wobble from 'react-reveal/Wobble'
 import RubberBand from 'react-reveal/RubberBand'
 import Zoom from 'react-reveal/Zoom'
-import { IoArrowUpSharp } from 'react-icons/io5'
 
 export function HomePage(props) {
-  const history = useHistory()
-  const [showScroll, setShowScroll] = useState(false)
-
-  const checkScrollPosition = () => {
-    if (!showScroll && window.pageYOffset > 500) {
-      setShowScroll(true)
-    } else if (showScroll && window.pageYOffset <= 500) {
-      setShowScroll(false)
-    }
-  }
-
-  window.addEventListener('scroll', checkScrollPosition)
-
   useEffect(() => {
     props.getMovieReviews()
+    props.getCritics()
   }, [])
 
-  
+  useEffect(() => {}, [])
+  console.log(props, 'props')
 
   return (
     <HomeSection>
@@ -79,11 +68,7 @@ export function HomePage(props) {
           <span>Express Yourself</span> With the things you love
         </h1>
       </RubberBand>
-      <IoArrowUpSharp
-        className="scrollIcon"
-        onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })}
-        style={{ height: 40, display: showScroll ? 'flex' : 'none' }}
-      />
+
       <ContentWrapper>
         <Fade top>
           <LeftSideContent>
@@ -180,9 +165,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   getMovieReviews: () => dispatch(getMovieReviews()),
+  getCritics: () => dispatch(getCritics()),
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+export default compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )
 )(HomePage)

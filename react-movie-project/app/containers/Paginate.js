@@ -1,5 +1,5 @@
 import React from 'react'
-import { PaginateContainer } from '../components/Paginate'
+import { PaginateContainer, PaginateNumbers } from '../components/Paginate'
 
 export const Pagination = ({ perPage, total, paginate }) => {
   const pageNumbers = []
@@ -9,20 +9,20 @@ export const Pagination = ({ perPage, total, paginate }) => {
   }
   return (
     <PaginateContainer>
-      <ul>
+      <PaginateNumbers>
         {pageNumbers.map(pageNum => {
           return (
             <li key={pageNum}>
               <a
                 onClick={() => paginate(pageNum)}
                 href="#"
-                style={{ color: 'red' }}>
+                >
                 {pageNum}
               </a>
             </li>
           )
         })}
-      </ul>
+      </PaginateNumbers>
     </PaginateContainer>
   )
 }

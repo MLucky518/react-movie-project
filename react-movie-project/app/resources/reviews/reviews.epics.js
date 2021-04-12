@@ -14,6 +14,9 @@ const fetchReviews = (action$, state$, { get }) =>
       from(get('/static/movie-reviews.json')).pipe(
         map(response => {
           let payload = response.data
+          payload.sort((a, b) => {
+            return a.publication_date.localeCompare(b.publication_date)
+          })
           console.log(payload)
           return {
             type: REVIEWS_FETCH_SUCCESS,

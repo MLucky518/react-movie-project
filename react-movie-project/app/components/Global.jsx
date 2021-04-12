@@ -37,24 +37,62 @@ const GlobalStyle = createGlobalStyle`
 
     .scrollIcon{
     position: fixed; 
-    width: 100%;
-    bottom: 20px;
-    left:40%;
+    width: 50px;
+    bottom: 150px;
+    right:100px;
     align-items: center;
-    height: 20px;
+    height: 50px;
     justify-content: center;
     z-index: 1000;
     cursor: pointer;
     animation: fadeIn 0.3s;
-    transition: opacity 0.4s;
-    color:#CF6920;
+    transition: 0.4s;
+    color:white;
+    border-radius:5px;
+    background:#85A2D6;
+  border:1px solid black;
+    &:hover{
+        background:black;
+        opacity:0.7;
+    }
+    @media screen and (max-width: 1100px) {
+        right:5px;
+        bottom:60px;
+        height:40px;
+        width:40px;
+  }
     }
 
 
-
-
    
+.info-card{
+    height:1000px !important;
+    width:1000px !important;
 
+    img{
+        height:500px;
+    }
+    p{
+        color:#CF6920;
+            font-size:2rem;
+            font-family:"Caveat",cursive;
+    }
+
+    @media screen and (max-width: 1100px) {
+        height:800px !important;
+    width:100% !important;
+
+    img{
+        height:400px;
+    }
+    p{
+        color:#CF6920;
+            font-size:2rem;
+            font-family:"Caveat",cursive;
+    }
+  }
+    
+}
     
 
 `

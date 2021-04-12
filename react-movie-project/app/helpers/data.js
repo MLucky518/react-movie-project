@@ -8,7 +8,20 @@ export const menuData = [
     link: `/critics`,
   },
 ]
-
+export const dropdownData = [
+  {
+    title: `Home`,
+    link: `/`,
+  },
+  {
+    title: `Reviews`,
+    link: `/reviews`,
+  },
+  {
+    title: `Critics`,
+    link: `/critics`,
+  },
+]
 export const footerData = [
   {
     title: `Reviews`,
@@ -19,4 +32,3 @@ export const footerData = [
     link: `/critics`,
   },
 ]
-

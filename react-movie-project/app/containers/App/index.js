@@ -60,7 +60,11 @@ export default function App(props) {
         <Route path="/home" component={HomePage} />
         <Route exact path="/reviews" component={Reviews} />
         <Route path="/critics" component={Critics} />
-        <Route exact path = "/reviews/:id" render = {(props)=> <ReviewInfo {...props} />}/>
+        <Route
+          exact
+          path="/reviews/:id"
+          render={props => <ReviewInfo {...props} />}
+        />
       </Switch>
 
       <IoArrowUpSharp

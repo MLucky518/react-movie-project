@@ -195,7 +195,6 @@ export const RightSideContent = styled.div`
 
 export const AdvisorBoxWrapper = styled.div`
   padding:10rem;
-  border:1px solid red;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -27,13 +27,13 @@ const Reviews = props => {
 
   ///Filters///
   const [mpaa, setMpaa] = useState(
-    storage.load('mpaa') === null ? false : storage.load('mpaa')
+    storage.load('mpaa') === null ? 'false' : storage.load('mpaa')
   )
   const [criticsChoice, setCriticsChoice] = useState(
-    storage.load('crit') === null ? false : storage.load('crit')
+    storage.load('crit') === null ? 'false' : storage.load('crit')
   )
   const [pubDate, setPubDate] = useState(
-    storage.load('pub') === null ? false : storage.load('pub')
+    storage.load('pub') === null ? 'false' : storage.load('pub')
   )
   /////////
 
@@ -42,29 +42,29 @@ const Reviews = props => {
   }, [])
 
   useEffect(() => {
-    storage.remove('mpaa', mpaa)
-    storage.remove('pub', pubDate)
-    storage.remove('crit', criticsChoice)
     let filteredChars = []
 
-    if (mpaa) {
+    if (mpaa === 'true') {
       filteredChars = props.data.filter(rev => {
         return rev.mpaa_rating === searched.toUpperCase()
       })
-    } else if (pubDate) {
+    } else if (pubDate === 'true') {
       filteredChars = props.data.filter(rev => {
         return rev.publication_date.includes(searched.slice(0, 5))
       })
-    } else if (criticsChoice) {
+    } else if (criticsChoice === 'true') {
       filteredChars = props.data.filter(rev => {
-        return rev.critics_pick === 1
+        return (
+          rev.critics_pick === 1 &&
+          rev.display_title.toLowerCase().includes(searched)
+        )
       })
     } else {
       filteredChars = props.data.filter(rev => {
         return rev.display_title.toLowerCase().includes(searched)
       })
     }
-
+    storage.save('search', searched)
     storage.save('mpaa', mpaa)
     storage.save('pub', pubDate)
     storage.save('crit', criticsChoice)
@@ -101,9 +101,8 @@ const Reviews = props => {
 
   const handleChange = e => {
     e.preventDefault()
-    storage.save('search', searched)
+
     setSearched(e.target.value)
-    storage.save('search', searched)
   }
 
   return (
@@ -117,12 +116,13 @@ const Reviews = props => {
         onChange={e => handleChange(e)}
       />
       <h4>Filters</h4>
+      {/* EVERYTHING BELOW NEEDS STYLING!!! */}
       <input
         type="checkbox"
         name="critics"
         value="CRIT"
-        onChange={() => setCriticsChoice(!criticsChoice)}
-        checked={criticsChoice}
+        onChange={() =>setCriticsChoice(criticsChoice === 'false' ? 'true' : 'false')}
+        checked={criticsChoice === 'false' ? false : true}
       />
       <label htmlFor="critics">Critics pick</label>
       <br />
@@ -130,8 +130,8 @@ const Reviews = props => {
         type="checkbox"
         name="mpaa"
         value="MPAA"
-        onChange={() => setMpaa(!mpaa)}
-        checked={mpaa}
+        onChange={() => setMpaa(mpaa === 'false' ? 'true' : 'false')}
+        checked={mpaa === 'false' ? false : true}
       />
       <label htmlFor="mpaa"> MPAA Rating</label>
       <br />
@@ -139,13 +139,13 @@ const Reviews = props => {
         type="checkbox"
         name="pub date"
         value="PUB"
-        onChange={() => setPubDate(!pubDate)}
-        checked={pubDate}
+        onChange={() => setPubDate(pubDate === 'false' ? 'true' : 'false')}
+        checked={pubDate === 'false' ? false : true}
       />
       <label htmlFor="pub date"> Publication date</label>
       <br />
       <br />
-
+      {/* ///////////////////////////////////////////////////////////// */}
       <Pagination
         perPage={reviewsPerPage}
         total={reviews.length}

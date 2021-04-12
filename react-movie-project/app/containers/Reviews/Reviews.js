@@ -42,20 +42,22 @@ const Reviews = props => {
   }, [])
 
   useEffect(() => {
+    storage.remove('mpaa', mpaa)
+    storage.remove('pub', pubDate)
+    storage.remove('crit', criticsChoice)
     let filteredChars = []
+
     if (mpaa) {
       filteredChars = props.data.filter(rev => {
         return rev.mpaa_rating === searched.toUpperCase()
       })
     } else if (pubDate) {
       filteredChars = props.data.filter(rev => {
-        return rev.publication_date.toLowerCase().includes(searched.slice(0, 5))
+        return rev.publication_date.includes(searched.slice(0, 5))
       })
     } else if (criticsChoice) {
       filteredChars = props.data.filter(rev => {
-        return (
-          rev.critics_pick === 1
-        )
+        return rev.critics_pick === 1
       })
     } else {
       filteredChars = props.data.filter(rev => {
@@ -63,15 +65,12 @@ const Reviews = props => {
       })
     }
 
-    storage.remove('mpaa',mpaa)
-    storage.remove('pub',pubDate)
-    storage.remove('crit',criticsChoice)
     storage.save('mpaa', mpaa)
     storage.save('pub', pubDate)
     storage.save('crit', criticsChoice)
 
     setFiltered(filteredChars)
-  }, [searched, props.data, mpaa, pubDate, criticsChoice])
+  }, [searched, mpaa, pubDate, criticsChoice])
 
   const indexOfLastPost = currentPage * reviewsPerPage
   const indexOfFirstPost = indexOfLastPost - reviewsPerPage
@@ -115,7 +114,7 @@ const Reviews = props => {
         type="text"
         name="search"
         value={searched}
-        onChange={handleChange}
+        onChange={e => handleChange(e)}
       />
       <h4>Filters</h4>
       <input
@@ -132,6 +131,7 @@ const Reviews = props => {
         name="mpaa"
         value="MPAA"
         onChange={() => setMpaa(!mpaa)}
+        checked={mpaa}
       />
       <label htmlFor="mpaa"> MPAA Rating</label>
       <br />
@@ -140,6 +140,7 @@ const Reviews = props => {
         name="pub date"
         value="PUB"
         onChange={() => setPubDate(!pubDate)}
+        checked={pubDate}
       />
       <label htmlFor="pub date"> Publication date</label>
       <br />

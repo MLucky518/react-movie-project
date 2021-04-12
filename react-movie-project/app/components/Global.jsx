@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
     *{
@@ -13,9 +13,50 @@ const GlobalStyle = createGlobalStyle`
         
     }
 
+    .home-content-header{
+        margin-top:3%;
+        text-align:center;
+        font-family: 'Train One', cursive;
+        font-size: 3rem;
+        color: #587fc3;
+
+        span{
+            color:#CF6920;
+            font-size:4rem;
+            font-family:"Caveat",cursive;
+        }
+    }
+
+    .ashoka-pic{
+        border-radius:50%;
+        height:200px;
+        width:250px;
+        padding:2%;
+        margin-right:5%;
+    }
+
+    .scrollIcon{
+    position: fixed; 
+    width: 100%;
+    bottom: 20px;
+    left:40%;
+    align-items: center;
+    height: 20px;
+    justify-content: center;
+    z-index: 1000;
+    cursor: pointer;
+    animation: fadeIn 0.3s;
+    transition: opacity 0.4s;
+    color:#CF6920;
+    }
+
+
+
+
+   
 
     
 
-`;
+`
 
-export default GlobalStyle;
+export default GlobalStyle

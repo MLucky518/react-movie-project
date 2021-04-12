@@ -9,7 +9,7 @@ export const Nav = styled.nav`
   justify-content: space-around;
   position: fixed;
   padding: 1rem 2rem;
-  z-index: 100;
+  z-index: 1;
   width: 100%;
   @media screen and (max-width: 768px) {
     justify-content: space-between;
@@ -25,14 +25,14 @@ export const Logo = styled.img`
   cursor: pointer;
   @media screen and (max-width: 768px) {
     height: 30px;
-    bottom:10%;
-    right:20%;
+    bottom: 10%;
+    right: 20%;
   }
 `
 
 export const MenuBars = styled.i`
   display: none;
-
+  color: #587fc3;
   @media screen and (max-width: 768px) {
     display: flex;
     justify-content: center;
@@ -51,9 +51,9 @@ export const NavMenu = styled.div`
 `
 
 export const MenuLinks = styled(Link)`
-  font-weight: 500;
-  color: ${({ primary }) => (primary ? '#364547' : 'black')};
-  font-size: 1rem;
+  font-weight: 600;
+  color: ${({ primary }) => (primary ? '#587FC3' : 'white')};
+  font-size: ${({ big }) => (big ? '1.5rem' : '1rem')};
   display: flex;
   align-items: center;
   padding: ${({ footer }) => (footer ? '0 0rem ' : '0 2rem')};

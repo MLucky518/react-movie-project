@@ -7,7 +7,6 @@ import {
   REVIEWS_FETCH_FAILURE,
 } from './reviews.actions'
 
-
 const fetchReviews = (action$, state$, { get }) =>
   action$.pipe(
     ofType(REVIEWS_FETCH_REQUEST),
@@ -15,9 +14,10 @@ const fetchReviews = (action$, state$, { get }) =>
       from(get('/static/movie-reviews.json')).pipe(
         map(response => {
           let payload = response.data
+          console.log(payload)
           return {
             type: REVIEWS_FETCH_SUCCESS,
-            payload,
+            payload: payload,
             meta: response.data.meta,
           }
         }),

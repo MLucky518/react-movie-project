@@ -12,8 +12,9 @@ export const NavButton = styled.div`
 `
 
 export const Button = styled(Link)`
-  background: ${({ primary }) => (primary ? 'red' : 'CD853f')};
+  background: ${({ primary }) => (primary ? '#85A2D6' : 'CD853f')};
   white-space: nowrap;
+  
   outline: none;
   border: none;
   min-width: 10px;
@@ -28,10 +29,15 @@ export const Button = styled(Link)`
   border-radius: ${({ round }) => (round ? '50px' : '0px')};
   padding: ${({ big }) => (big ? '16px 40px' : '14px 24px')};
   color: ${({ primary }) => (primary ? '#fff' : '000d1a')};
-  font-size: ${({ big }) => (big ? '20px' : '14px')};
-  margin-left: 10px;
-
+  font-size: 16px;
+  font-weight: bold;
   &:hover {
     transform: translateY(-2px);
+    background: black;
+    opacity: 0.8;
+  }
+  &:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(5px);
   }
 `

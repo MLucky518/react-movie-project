@@ -38,30 +38,23 @@ const Reviews = props => {
   /////////
 
   useEffect(() => {
-    
     setReviews(props.data)
   }, [])
 
   useEffect(() => {
-    storage.remove('mpaa')
-    storage.remove('pub')
-    storage.remove('crit')
     let filteredChars = []
     if (mpaa) {
       filteredChars = props.data.filter(rev => {
         return rev.mpaa_rating === searched.toUpperCase()
       })
-    }
-    else if (pubDate) {
+    } else if (pubDate) {
       filteredChars = props.data.filter(rev => {
         return rev.publication_date.toLowerCase().includes(searched.slice(0, 5))
       })
-    }
-    else if (criticsChoice) {
+    } else if (criticsChoice) {
       filteredChars = props.data.filter(rev => {
         return (
-          rev.critics_pick === 1 &&
-          rev.display_title.toLowerCase().includes(searched)
+          rev.critics_pick === 1
         )
       })
     } else {
@@ -69,22 +62,10 @@ const Reviews = props => {
         return rev.display_title.toLowerCase().includes(searched)
       })
     }
-    // const filteredChars = props.data.filter(rev => {
-    //   if (mpaa) {
-    //     return rev.mpaa_rating === searched
-    //   }
-    //   if (pubDate) {
-    //     return rev.publication_date.includes(searched.slice(0, 5))
-    //   }
-    //   if (criticsChoice) {
-    //     return (
-    //       rev.critics_pick === 1 &&
-    //       rev.display_title.toLowerCase().includes(searched)
-    //     )
-    //   } else {
-    //     return rev.display_title.toLowerCase().includes(searched)
-    //   }
-    // })
+
+    storage.remove('mpaa',mpaa)
+    storage.remove('pub',pubDate)
+    storage.remove('crit',criticsChoice)
     storage.save('mpaa', mpaa)
     storage.save('pub', pubDate)
     storage.save('crit', criticsChoice)
@@ -123,6 +104,7 @@ const Reviews = props => {
     e.preventDefault()
     storage.save('search', searched)
     setSearched(e.target.value)
+    storage.save('search', searched)
   }
 
   return (
@@ -192,9 +174,7 @@ const Reviews = props => {
               <CardContent>
                 <h4>{item.display_title}</h4>
                 <time>{item.publication_date}</time>
-                <p>
-                  {item.mpaa_rating ? item.mpaa_rating : 'n/a'}
-                </p>
+                <p>{item.mpaa_rating ? item.mpaa_rating : 'n/a'}</p>
                 {item.critics_pick === 1 ? (
                   <GiTrophy style={{ color: 'orange' }} />
                 ) : (
